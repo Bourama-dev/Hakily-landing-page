@@ -6,6 +6,7 @@ import DimensionDivider from '../components/DimensionDivider'
 import RingPing from '../components/RingPing'
 import TicketCard from '../components/TicketCard'
 import FAQ from '../components/FAQ'
+import StickyCTA from '../components/StickyCTA'
 
 function scrollToBooking() {
   document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
@@ -265,6 +266,8 @@ function VSL() {
           30 min · Gratuit · Sans engagement
         </p>
       </Section>
+
+      <StickyCTA />
     </>
   )
 }
