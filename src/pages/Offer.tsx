@@ -14,6 +14,7 @@ import DimensionDivider from '../components/DimensionDivider'
 import HazardBanner from '../components/HazardBanner'
 import FAQ, { type FAQItem } from '../components/FAQ'
 import StickyCTA from '../components/StickyCTA'
+import CalendlyInlineWidget from '../components/CalendlyInlineWidget'
 
 function scrollToBooking() {
   document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
@@ -215,11 +216,7 @@ function Offer() {
         <h2 className="mb-8 text-center font-display text-3xl font-black text-ticket-paper uppercase md:text-4xl">
           Réserve ton appel maintenant
         </h2>
-        <div
-          className="calendly-inline-widget mx-auto w-full max-w-3xl"
-          data-url="https://calendly.com/bourama-axyagroup/30min"
-          style={{ minWidth: '320px', height: '700px' }}
-        />
+        <CalendlyInlineWidget url="https://calendly.com/bourama-axyagroup/30min" className="mx-auto w-full max-w-3xl" />
         <p className="mt-4 text-center font-mono text-xs tracking-wide text-ticket-paper/60 uppercase">
           Pack Fondateur · 149 €/mois à vie · Garantie 15 jours satisfait ou remboursé
         </p>

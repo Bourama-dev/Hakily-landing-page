@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Calendar, Check, Clock, Video } from 'lucide-react'
 import Header from '../components/Header'
@@ -18,6 +19,12 @@ const commitments = [
 ]
 
 function Confirmation() {
+  useEffect(() => {
+    if (typeof window.fbq !== 'undefined') {
+      window.fbq('track', 'Schedule')
+    }
+  }, [])
+
   return (
     <>
       <Header />

@@ -7,6 +7,7 @@ import RingPing from '../components/RingPing'
 import TicketCard from '../components/TicketCard'
 import FAQ from '../components/FAQ'
 import StickyCTA from '../components/StickyCTA'
+import CalendlyInlineWidget from '../components/CalendlyInlineWidget'
 
 function scrollToBooking() {
   document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
@@ -257,11 +258,7 @@ function VSL() {
         <p className="mx-auto mb-8 max-w-xl text-center font-body text-sm text-ticket-paper/75 md:text-base">
           30 minutes pour voir si Hakily correspond à ton activité, sans engagement.
         </p>
-        <div
-          className="calendly-inline-widget mx-auto w-full max-w-3xl"
-          data-url="https://calendly.com/bourama-axyagroup/30min"
-          style={{ minWidth: '320px', height: '700px' }}
-        />
+        <CalendlyInlineWidget url="https://calendly.com/bourama-axyagroup/30min" className="mx-auto w-full max-w-3xl" />
         <p className="mt-4 text-center font-mono text-xs tracking-wide text-ticket-paper/60 uppercase">
           30 min · Gratuit · Sans engagement
         </p>
