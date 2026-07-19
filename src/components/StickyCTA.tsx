@@ -5,7 +5,11 @@ function scrollToBooking() {
   document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
 }
 
-function StickyCTA() {
+interface StickyCTAProps {
+  label?: string
+}
+
+function StickyCTA({ label = 'Réserver mon appel découverte' }: StickyCTAProps) {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -29,7 +33,7 @@ function StickyCTA() {
             transition={{ type: 'spring', stiffness: 320, damping: 20 }}
             className="fixed right-4 bottom-4 z-50 bg-signal-orange px-5 py-3 font-mono text-xs uppercase tracking-wide text-ticket-paper shadow-[0_6px_16px_rgba(0,0,0,0.4)] active:translate-y-0.5"
           >
-            Réserver mon appel découverte
+            {label}
           </motion.button>
         )}
       </AnimatePresence>

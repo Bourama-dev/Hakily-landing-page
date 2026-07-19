@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
-interface FAQItem {
+export interface FAQItem {
   question: string
   answer: string
 }
 
-const items: FAQItem[] = [
+const defaultItems: FAQItem[] = [
   {
     question: "C'est juste un répondeur amélioré ?",
     answer:
@@ -35,7 +35,11 @@ const items: FAQItem[] = [
   },
 ]
 
-function FAQ() {
+interface FAQProps {
+  items?: FAQItem[]
+}
+
+function FAQ({ items = defaultItems }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
