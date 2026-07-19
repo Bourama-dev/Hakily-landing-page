@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette — "Dispatch Chantier" */
+  --color-blueprint-navy: #0e1f33;
+  --color-blueprint-line: #3e6178;
+  --color-ticket-paper: #efe7d8;
+  --color-ticket-ink: #1c1b18;
+  --color-signal-orange: #ff5a1f;
+  --color-hazard-yellow: #ffc94a;
+
+  /* Typography */
+  --font-display: "Big Shoulders Display", sans-serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-blueprint-navy text-ticket-paper font-body antialiased;
+    margin: 0;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-signal-orange;
+  }
+}
