@@ -27,7 +27,7 @@ const defaultItems: FAQItem[] = [
   },
   {
     question: "Je n'ai pas assez d'appels pour ça ?",
-    answer: "Quand le volume est faible, chaque appel compte double. Un chantier raté, c'est peut-être celui de la semaine.",
+    answer: "Quand le volume est faible, chaque appel compte double. Un client raté, c'est peut-être celui de la semaine.",
   },
   {
     question: 'Comment je sais que ça vaut le prix ?',
