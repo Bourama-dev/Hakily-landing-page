@@ -15,6 +15,7 @@ import HazardBanner from '../components/HazardBanner'
 import FAQ, { type FAQItem } from '../components/FAQ'
 import StickyCTA from '../components/StickyCTA'
 import CalendlyInlineWidget from '../components/CalendlyInlineWidget'
+import { LiveAgentCall } from '../components/LiveAgentCall'
 
 function scrollToBooking() {
   document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
@@ -179,7 +180,7 @@ function Offer() {
           Encore des doutes ? Teste l'assistant toi-même, en direct
         </h3>
         <div className="relative mx-auto max-w-xl rounded-sm border border-blueprint-line/30 bg-ticket-paper/5 p-4 shadow-[0_0_40px_rgba(255,90,31,0.15)]">
-          <elevenlabs-convai agent-id="agent_1201krzttyqpfettefcemdq2p55d"></elevenlabs-convai>
+          <LiveAgentCall />
         </div>
       </Section>
 

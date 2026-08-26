@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import Section from '../components/Section'
 import DimensionDivider from '../components/DimensionDivider'
 import TicketCard from '../components/TicketCard'
+import { LiveAgentCall } from '../components/LiveAgentCall'
 
 const steps = [
   { number: 1, label: 'Regarder la vidéo' },
@@ -182,7 +183,7 @@ function Confirmation() {
           ta demande, en conditions réelles.
         </p>
         <div className="relative mx-auto max-w-xl rounded-sm border border-blueprint-line/30 bg-ticket-paper/5 p-4 shadow-[0_0_40px_rgba(255,90,31,0.15)]">
-          <elevenlabs-convai agent-id="agent_1201krzttyqpfettefcemdq2p55d"></elevenlabs-convai>
+          <LiveAgentCall />
         </div>
       </Section>
 
