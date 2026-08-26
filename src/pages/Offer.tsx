@@ -98,7 +98,7 @@ function Offer() {
           <button
             type="button"
             onClick={scrollToBooking}
-            className="bg-blueprint-line px-8 py-4 font-display text-lg tracking-wide text-ticket-paper uppercase shadow-[0_4px_0_rgba(0,0,0,0.35)] transition-transform active:translate-y-1 active:shadow-none"
+            className="bg-signal-orange px-8 py-4 font-display text-lg tracking-wide text-ticket-paper uppercase shadow-[0_4px_0_rgba(0,0,0,0.35)] transition-transform active:translate-y-1 active:shadow-none"
           >
             Réserver mon appel →
           </button>
@@ -113,14 +113,14 @@ function Offer() {
               key={item}
               className="flex flex-1 items-start gap-2 font-mono text-xs tracking-wide text-ticket-paper/80 uppercase"
             >
-              <Check className="mt-0.5 h-4 w-4 shrink-0 text-signal-orange" />
+              <Check className="mt-0.5 h-4 w-4 shrink-0 text-hazard-yellow" />
               {item}
             </li>
           ))}
         </ul>
       </div>
 
-      <DimensionDivider />
+      <DimensionDivider variant="minor" />
 
       {/* OBJECTIONS */}
       <Section contentClassName="max-w-2xl">
@@ -184,7 +184,7 @@ function Offer() {
         </div>
       </Section>
 
-      <DimensionDivider />
+      <DimensionDivider variant="minor" />
 
       {/* GUARANTEE */}
       <Section contentClassName="max-w-xl">
@@ -200,14 +200,23 @@ function Offer() {
         </div>
       </Section>
 
-      <DimensionDivider />
+      <DimensionDivider variant="minor" />
 
-      {/* SHORT FAQ */}
+      {/* SHORT FAQ — simple text, pas un second accordéon */}
       <Section contentClassName="max-w-2xl">
-        <h2 className="mb-10 text-center font-display text-3xl font-black text-ticket-paper uppercase md:text-4xl">
+        <h2 className="mb-8 text-center font-display text-3xl font-black text-ticket-paper uppercase md:text-4xl">
           Dernières questions
         </h2>
-        <FAQ items={shortFaq} />
+        <div className="flex flex-col gap-6">
+          {shortFaq.map((item) => (
+            <div key={item.question} className="border-l-2 border-blueprint-line/40 pl-4">
+              <p className="font-display text-base tracking-wide text-ticket-paper uppercase md:text-lg">
+                {item.question}
+              </p>
+              <p className="mt-1 font-body text-sm leading-relaxed text-ticket-paper/70">{item.answer}</p>
+            </div>
+          ))}
+        </div>
       </Section>
 
       <DimensionDivider />

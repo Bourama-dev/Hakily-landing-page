@@ -117,7 +117,7 @@ function VSL() {
         </div>
       </Section>
 
-      <DimensionDivider />
+      <DimensionDivider variant="minor" />
 
       {/* PROOF BAR */}
       <div className="relative border-y border-blueprint-line/20 py-6">
@@ -144,7 +144,7 @@ function VSL() {
         </div>
       </Section>
 
-      <DimensionDivider />
+      <DimensionDivider variant="minor" />
 
       {/* MECHANISM */}
       <Section>
@@ -176,7 +176,7 @@ function VSL() {
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
               >
-                <span className="absolute -left-10 top-0 flex h-6 w-6 items-center justify-center rounded-full bg-signal-orange font-mono text-xs text-ticket-paper">
+                <span className="absolute -left-10 top-0 flex h-6 w-6 items-center justify-center rounded-full bg-hazard-yellow font-mono text-xs text-ticket-ink">
                   {i + 1}
                 </span>
                 <h3 className="font-display text-xl tracking-wide text-ticket-paper uppercase">{step.title}</h3>
@@ -206,7 +206,7 @@ function VSL() {
         </p>
       </Section>
 
-      <DimensionDivider />
+      <DimensionDivider variant="minor" />
 
       {/* WHAT HAKILY DOES / DOES NOT */}
       <Section contentClassName="max-w-4xl">
@@ -239,7 +239,7 @@ function VSL() {
         </div>
       </Section>
 
-      <DimensionDivider />
+      <DimensionDivider variant="minor" />
 
       {/* FAQ */}
       <Section>

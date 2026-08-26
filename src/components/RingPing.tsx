@@ -18,7 +18,7 @@ function RingPing() {
   if (reduceMotion) {
     return (
       <svg viewBox="0 0 420 140" className="w-full max-w-md" role="img" aria-label="Décroché. Toujours.">
-        <circle cx={PING_X} cy={PING_Y} r={6} className="fill-signal-orange" />
+        <circle cx={PING_X} cy={PING_Y} r={6} className="fill-hazard-yellow" />
         <line
           x1={PING_X + 24}
           y1={PING_Y}
@@ -47,7 +47,7 @@ function RingPing() {
           key={i}
           cx={PING_X}
           cy={PING_Y}
-          className="stroke-signal-orange"
+          className="stroke-hazard-yellow"
           fill="none"
           strokeWidth={1.5}
           strokeDasharray="3 5"

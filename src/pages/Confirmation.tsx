@@ -85,21 +85,21 @@ function Confirmation() {
         <div className="mx-auto flex w-full max-w-2xl flex-col gap-3 rounded-sm border border-blueprint-line/30 bg-blueprint-navy px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
           {/* TODO: injecter les vraies infos du rendez-vous (date, heure, lien visio) depuis Calendly */}
           <span className="flex items-center gap-2 font-mono text-xs tracking-wide text-ticket-paper/70 uppercase">
-            <Calendar className="h-4 w-4 text-signal-orange" />
+            <Calendar className="h-4 w-4 text-hazard-yellow" />
             Date à confirmer par email
           </span>
           <span className="flex items-center gap-2 font-mono text-xs tracking-wide text-ticket-paper/70 uppercase">
-            <Clock className="h-4 w-4 text-signal-orange" />
+            <Clock className="h-4 w-4 text-hazard-yellow" />
             30 min
           </span>
           <span className="flex items-center gap-2 font-mono text-xs tracking-wide text-ticket-paper/70 uppercase">
-            <Video className="h-4 w-4 text-signal-orange" />
+            <Video className="h-4 w-4 text-hazard-yellow" />
             Lien visio dans l'email
           </span>
         </div>
       </div>
 
-      <DimensionDivider />
+      <DimensionDivider variant="minor" />
 
       {/* PROGRESS STEPS */}
       <div className="px-6 py-10">
@@ -107,7 +107,7 @@ function Confirmation() {
           {steps.map((step, i) => (
             <div key={step.number} className="flex flex-1 items-center last:flex-none">
               <div className="flex flex-col items-center gap-2">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-signal-orange font-mono text-sm text-ticket-paper">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-hazard-yellow font-mono text-sm text-ticket-ink">
                   {step.number}
                 </span>
                 <span className="max-w-[7rem] text-center font-mono text-[10px] tracking-wide text-ticket-paper/70 uppercase">
@@ -126,7 +126,7 @@ function Confirmation() {
 
       {/* STEP 1 — VIDEO */}
       <Section contentClassName="max-w-2xl">
-        <p className="mb-3 text-center font-mono text-xs tracking-wide text-signal-orange uppercase">
+        <p className="mb-3 text-center font-mono text-xs tracking-wide text-hazard-yellow uppercase">
           Étape 1 : obligatoire
         </p>
         <h2 className="mb-3 text-center font-display text-3xl font-black text-ticket-paper uppercase md:text-4xl">
@@ -147,11 +147,11 @@ function Confirmation() {
         </div>
       </Section>
 
-      <DimensionDivider />
+      <DimensionDivider variant="minor" />
 
       {/* STEP 2 — ACCEPT CALENDAR INVITE */}
       <Section contentClassName="max-w-2xl">
-        <p className="mb-3 text-center font-mono text-xs tracking-wide text-signal-orange uppercase">
+        <p className="mb-3 text-center font-mono text-xs tracking-wide text-hazard-yellow uppercase">
           Étape 2 : obligatoire
         </p>
         <h2 className="mb-3 text-center font-display text-3xl font-black text-ticket-paper uppercase md:text-4xl">
@@ -172,7 +172,7 @@ function Confirmation() {
 
       {/* STEP 3 — LIVE ELEVENLABS PROOF */}
       <Section contentClassName="max-w-2xl">
-        <p className="mb-3 text-center font-mono text-xs tracking-wide text-signal-orange uppercase">
+        <p className="mb-3 text-center font-mono text-xs tracking-wide text-hazard-yellow uppercase">
           Étape 3 : la meilleure preuve
         </p>
         <h2 className="mb-3 text-center font-display text-3xl font-black text-ticket-paper uppercase md:text-4xl">

@@ -33,9 +33,9 @@ function LiveAgentCallInner() {
         type="button"
         onClick={isConnected ? handleStop : handleStart}
         disabled={isConnecting}
-        className="flex w-full items-center justify-between gap-3 rounded-sm bg-blueprint-navy px-5 py-4 text-left transition-colors hover:bg-blueprint-navy/80 disabled:cursor-wait"
+        className="flex w-full flex-col items-stretch gap-3 rounded-sm bg-blueprint-navy px-5 py-4 text-center transition-colors hover:bg-blueprint-navy/80 disabled:cursor-wait sm:flex-row sm:items-center sm:justify-between sm:text-left"
       >
-        <span className="flex items-center gap-3 font-body text-sm text-ticket-paper/85 sm:text-base">
+        <span className="flex items-center justify-center gap-3 font-body text-sm text-ticket-paper/85 sm:justify-start sm:text-base">
           {isConnected ? (
             <>
               <span className="relative flex h-2.5 w-2.5">
@@ -50,7 +50,7 @@ function LiveAgentCallInner() {
             "Clique pour simuler une demande d'intervention"
           )}
         </span>
-        <span className="flex shrink-0 items-center gap-2 rounded-full bg-signal-orange px-4 py-2 font-mono text-xs font-bold tracking-wide text-ticket-paper uppercase">
+        <span className="flex shrink-0 items-center justify-center gap-2 rounded-full bg-signal-orange px-4 py-2.5 font-mono text-xs font-bold tracking-wide text-ticket-paper uppercase sm:py-2">
           {isConnecting ? (
             <Loader2 className="h-4 w-4 animate-spin" strokeWidth={2.5} />
           ) : isConnected ? (

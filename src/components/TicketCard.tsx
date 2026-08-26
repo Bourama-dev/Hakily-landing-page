@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 
 interface TicketCardProps {
@@ -11,7 +10,7 @@ interface TicketCardProps {
 }
 
 function TicketCard({ ticketNumber, icon, index = 0, className = '', children }: TicketCardProps) {
-  const rotation = useMemo(() => Math.random() * 4 - 2, [])
+  const rotation = (index % 2 === 0 ? -1 : 1) * (1 + (index % 3) * 0.4)
 
   return (
     <motion.div
