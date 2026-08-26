@@ -31,12 +31,12 @@ const objections: FAQItem[] = [
   {
     question: "Je n'ai pas assez d'appels",
     answer:
-      "Quand le volume est faible, chaque appel compte double : un client raté, c'est peut-être le chantier de la semaine.",
+      "Quand le volume est faible, chaque appel compte double : un client raté, c'est peut-être le contrat de la semaine.",
   },
   {
     question: "C'est trop cher",
     answer:
-      "Combien te coûte un seul chantier perdu faute d'avoir décroché ? Un ou deux appels rattrapés dans le mois remboursent largement le forfait.",
+      "Combien te coûte un seul client perdu faute d'avoir décroché ? Un ou deux appels rattrapés dans le mois remboursent largement le forfait.",
   },
   {
     question: "C'est juste un répondeur, non ?",

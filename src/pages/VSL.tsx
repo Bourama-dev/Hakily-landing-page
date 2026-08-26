@@ -17,7 +17,7 @@ function scrollToBooking() {
 const problems = [
   {
     icon: <Wrench className="h-6 w-6" />,
-    text: 'Le téléphone sonne pendant que tu es sous un évier ou sur un chantier',
+    text: 'Le téléphone sonne pendant que tu es en intervention chez un client',
   },
   {
     icon: <PhoneOff className="h-6 w-6" />,
@@ -25,7 +25,7 @@ const problems = [
   },
   {
     icon: <Clock className="h-6 w-6" />,
-    text: 'Tu rappelles trop tard, souvent le soir, et le chantier est déjà parti',
+    text: 'Tu rappelles trop tard, souvent le soir, et le client est déjà parti chez un concurrent',
   },
   {
     icon: <Voicemail className="h-6 w-6" />,
@@ -85,7 +85,7 @@ function VSL() {
           </h1>
 
           <p className="max-w-xl font-body text-base text-ticket-paper/80 md:text-lg">
-            L'assistant téléphonique IA qui décroche à ta place, 24h/24 et 7j/7, pour les artisans du BTP.
+            L'assistant téléphonique IA qui décroche à ta place, 24h/24 et 7j/7, pour les artisans et indépendants.
           </p>
 
           {/* Video */}
