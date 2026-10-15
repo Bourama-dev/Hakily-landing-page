@@ -1,4 +1,16 @@
-function DimensionDivider() {
+interface DimensionDividerProps {
+  variant?: 'full' | 'minor'
+}
+
+function DimensionDivider({ variant = 'full' }: DimensionDividerProps) {
+  if (variant === 'minor') {
+    return (
+      <div className="relative flex items-center justify-center px-6 py-2" aria-hidden="true">
+        <div className="h-px w-full max-w-5xl bg-blueprint-line/15" />
+      </div>
+    )
+  }
+
   return (
     <div className="relative flex items-center justify-center px-6 py-2" aria-hidden="true">
       <div className="relative h-px w-full max-w-5xl bg-blueprint-line/30">
