@@ -27,11 +27,11 @@ const defaultItems: FAQItem[] = [
   },
   {
     question: "Je n'ai pas assez d'appels pour ça ?",
-    answer: "Quand le volume est faible, chaque appel compte double. Un client raté, c'est peut-être celui de la semaine.",
+    answer: 'Le forfait comprend 300 minutes par mois. On peut comparer cette limite à ton volume d’appels observé avant de choisir la solution.',
   },
   {
     question: 'Comment je sais que ça vaut le prix ?',
-    answer: 'Un ou deux appels rattrapés dans le mois couvrent largement le forfait mensuel.',
+    answer: 'Le tarif de lancement prévoit 990 € HT de mise en service, puis 249 € HT par mois pour 300 minutes incluses. Au-delà, chaque minute est à 0,30 € HT. Il n’y a pas de durée minimale. Ces tarifs restent soumis à la validation des coûts techniques réels.',
   },
 ]
 

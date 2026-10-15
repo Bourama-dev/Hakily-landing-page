@@ -9,6 +9,7 @@ import FAQ from '../components/FAQ'
 import StickyCTA from '../components/StickyCTA'
 import CalendlyInlineWidget from '../components/CalendlyInlineWidget'
 import { LiveAgentCall } from '../components/LiveAgentCall'
+import PricingSection from '../components/PricingSection'
 
 function scrollToBooking() {
   document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
@@ -21,22 +22,22 @@ const problems = [
   },
   {
     icon: <PhoneOff className="h-6 w-6" />,
-    text: 'Le client raccroche et appelle le concurrent dans la minute',
+    text: 'Tu ne peux pas toujours interrompre une intervention pour répondre',
   },
   {
     icon: <Clock className="h-6 w-6" />,
-    text: 'Tu rappelles trop tard, souvent le soir, et le client est déjà parti chez un concurrent',
+    text: 'Un appel manqué ne précise ni le besoin du client ni son niveau d’urgence',
   },
   {
     icon: <Voicemail className="h-6 w-6" />,
-    text: "Le répondeur ou le secrétariat externe ne couvre ni la nuit ni le week-end",
+    text: 'Le répondeur ne qualifie pas la demande avant que tu rappelles',
   },
 ]
 
 const mechanism = [
   {
     title: 'Disponibilité',
-    description: "L'assistant décroche 24h/24 et 7j/7, aucun appel ne tombe dans le vide.",
+    description: "L'assistant répond aux appels entrants selon les règles définies pour ton activité.",
   },
   {
     title: 'Qualification',
@@ -48,12 +49,12 @@ const mechanism = [
   },
   {
     title: 'Accompagnement',
-    description: 'Installation sous 7 jours, paramétré sur ton métier, suivi dans la durée.',
+    description: 'Le périmètre et le calendrier sont cadrés avec toi avant la mise en service.',
   },
 ]
 
 const doesList = [
-  'Répond 24h/24',
+  'Répond selon les règles définies pour ton activité',
   "Qualifie l'intervention",
   'Répond aux questions courantes',
   'Envoie un SMS récapitulatif',
@@ -78,29 +79,20 @@ function VSL() {
         <div className="flex flex-col items-center gap-8 text-center">
           <RingPing />
 
+          <p className="font-mono text-xs tracking-wide text-signal-orange uppercase">
+            Pour les plombiers, chauffagistes et artisans du BTP
+          </p>
+
           <h1 className="font-display text-4xl leading-[0.95] font-black text-ticket-paper uppercase md:text-5xl">
-            Ne perds plus jamais un appel client,
+            Ne manque plus les appels de tes clients pendant tes interventions,
             <br />
-            même en pleine intervention
+            même quand tu ne peux pas décrocher
           </h1>
 
           <p className="max-w-xl font-body text-base text-ticket-paper/80 md:text-lg">
-            L'assistant téléphonique IA qui décroche à ta place, 24h/24 et 7j/7, pour les artisans et indépendants.
+            Hakily aide les petites entreprises du BTP à mieux gérer leurs demandes clients. L’assistant téléphonique IA,
+            notre offre prioritaire, répond et qualifie les appels selon les règles de ton activité.
           </p>
-
-          {/* Video */}
-          <div className="relative mx-auto mt-4 w-full max-w-2xl">
-            <div className="absolute -inset-2 -z-10 rounded-sm bg-signal-orange/20 blur-2xl" aria-hidden="true" />
-            <div className="relative border border-ticket-paper/30 bg-ticket-paper/5 p-2">
-              <span className="absolute -top-3 right-4 bg-ticket-paper px-2 py-1 font-mono text-[10px] tracking-wide text-ticket-ink uppercase">
-                Preuve vidéo
-              </span>
-              <div className="flex aspect-video w-full items-center justify-center border border-blueprint-line/30 bg-blueprint-navy/60">
-                {/* TODO: remplacer par l'embed vidéo réel (Wistia/YouTube) */}
-                <p className="font-mono text-xs tracking-wide text-ticket-paper/50 uppercase">Vidéo à venir</p>
-              </div>
-            </div>
-          </div>
 
           <div className="mt-2 flex w-full flex-col items-center">
             <button
@@ -122,13 +114,29 @@ function VSL() {
       {/* PROOF BAR */}
       <div className="relative border-y border-blueprint-line/20 py-6">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-3 px-6 font-mono text-xs tracking-wide text-ticket-paper/70 uppercase sm:flex-row sm:justify-between">
-          <span>✓ Disponible 24h/24 et 7j/7</span>
-          <span>✓ Déployé en 7 jours</span>
-          <span>✓ Garantie 15 jours satisfait ou remboursé</span>
+          <span>✓ Répond selon les règles de ton activité</span>
+          <span>✓ Assistant : 300 minutes incluses / mois</span>
+          <span>✓ Assistant sans durée minimale</span>
+          <span>✓ 0,30 € HT / min au-delà</span>
         </div>
       </div>
 
       <DimensionDivider />
+
+      <Section contentClassName="max-w-3xl">
+        <div className="border-l-4 border-signal-orange bg-blueprint-navy p-6 md:p-8">
+          <p className="mb-3 font-mono text-xs tracking-wide text-signal-orange uppercase">Une approche pragmatique</p>
+          <h2 className="font-display text-2xl font-black text-ticket-paper uppercase md:text-3xl">
+            Des outils utiles, conçus autour de ton activité
+          </h2>
+          <p className="mt-4 font-body text-sm leading-relaxed text-ticket-paper/75 md:text-base">
+            Hakily automatise les tâches répétitives, relie les outils déjà utilisés et améliore le suivi des demandes.
+            L’intelligence artificielle intervient quand elle répond à un besoin concret, avec un périmètre défini ensemble.
+          </p>
+        </div>
+      </Section>
+
+      <DimensionDivider variant="minor" />
 
       {/* PROBLEM */}
       <Section contentClassName="max-w-4xl">
@@ -186,6 +194,10 @@ function VSL() {
           </ol>
         </div>
       </Section>
+
+      <DimensionDivider />
+
+      <PricingSection />
 
       <DimensionDivider />
 
