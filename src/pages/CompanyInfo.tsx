@@ -27,9 +27,9 @@ const pageContent: Record<CompanyInfoKind, { title: string; intro: string; items
   },
   terms: {
     title: 'Conditions commerciales et contrat',
-    intro: 'Le tarif de lancement de l’assistant téléphonique reste soumis à la validation des coûts techniques réels. Le contrat complet reste à formaliser.',
+    intro: 'Le tarif de l’assistant téléphonique est établi avec chaque client au cadrage, selon son activité et ses volumes. Le contrat complet reste à formaliser.',
     items: [
-      'Assistant téléphonique IA : tarif de lancement prévu à 990 € HT de mise en service, puis 249 € HT par mois, avec 300 minutes incluses par mois ; 0,30 € HT par minute au-delà ; sans durée minimale.',
+      'Assistant téléphonique IA : mise en service puis abonnement mensuel, avec minutes incluses définies selon le volume d’appels ; facturation à la minute au-delà ; sans durée minimale. Tarif établi avec le client au cadrage.',
       'Automatisations métier et agents IA : modules définis selon les besoins, les outils et le périmètre convenu ; devis établi après étude.',
       'Des frais récurrents complémentaires peuvent s’appliquer si l’hébergement, la supervision ou la maintenance le nécessitent.',
       'Modalités de facturation, mesure des minutes, résiliation et périmètre exact à formaliser dans le devis ou le contrat avant commande.',

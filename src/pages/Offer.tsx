@@ -11,7 +11,7 @@ import { LiveAgentCall } from '../components/LiveAgentCall'
 const offerFaq: FAQItem[] = [
   {
     question: 'Combien de minutes sont incluses dans l’offre téléphonique ?',
-    answer: 'Le tarif de lancement prévoit 300 minutes par mois incluses. Au-delà, chaque minute supplémentaire est à 0,30 € HT. Ces tarifs restent soumis à la validation des coûts techniques réels.',
+    answer: 'Les minutes incluses sont définies avec toi au cadrage, selon ton volume d’appels. Au-delà, chaque minute supplémentaire est facturée séparément.',
   },
   {
     question: 'Y a-t-il une durée minimale ?',

@@ -115,9 +115,9 @@ function VSL() {
       <div className="relative border-y border-blueprint-line/20 py-6">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-3 px-6 font-mono text-xs tracking-wide text-ticket-paper/70 uppercase sm:flex-row sm:justify-between">
           <span>✓ Répond selon les règles de ton activité</span>
-          <span>✓ Assistant : 300 minutes incluses / mois</span>
+          <span>✓ Minutes et volumes définis selon ton activité</span>
           <span>✓ Assistant sans durée minimale</span>
-          <span>✓ 0,30 € HT / min au-delà</span>
+          <span>✓ Tarif établi avec toi, sur devis</span>
         </div>
       </div>
 

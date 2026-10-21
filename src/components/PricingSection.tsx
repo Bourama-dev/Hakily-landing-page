@@ -55,17 +55,15 @@ function PricingSection() {
 
             {offer.featured ? (
               <>
-                <p className="font-mono text-xs uppercase text-ticket-ink/60">Mise en service</p>
-                <p className="font-display text-4xl font-black">990 € HT</p>
-                <p className="mt-4 font-mono text-xs uppercase text-ticket-ink/60">Puis chaque mois</p>
-                <p className="font-display text-3xl font-black">249 € HT / mois</p>
+                <p className="font-mono text-xs uppercase text-ticket-ink/60">Mise en service + abonnement mensuel</p>
+                <p className="font-display text-3xl font-black">Sur devis</p>
                 <ul className="mt-5 flex flex-col gap-2 border-t border-ticket-ink/15 pt-5 font-body text-sm">
-                  <li>300 minutes incluses par mois</li>
-                  <li>Au-delà : 0,30 € HT par minute</li>
+                  <li>Minutes incluses définies selon ton volume d'appels</li>
+                  <li>Au-delà : facturation à la minute</li>
                   <li>Sans durée minimale</li>
                 </ul>
                 <p className="mt-4 font-body text-xs leading-relaxed text-ticket-ink/65">
-                  Tarif de lancement à confirmer après validation des coûts techniques réels.
+                  Tarif établi avec toi au cadrage, selon ton activité et tes volumes.
                 </p>
               </>
             ) : (
