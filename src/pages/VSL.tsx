@@ -124,9 +124,9 @@ function Mechanism() {
       />
       <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
         <ol ref={listRef} className="relative flex flex-col gap-12 pl-16">
-          <span className="absolute top-2 bottom-2 left-[22px] w-[3px] rounded-full bg-white/10" aria-hidden="true">
+          <span className="absolute top-2 bottom-2 left-[22px] w-[3px] rounded-full bg-ink/5" aria-hidden="true">
             <motion.span
-              className="absolute inset-0 origin-top rounded-full bg-gradient-to-b from-cyan via-blue to-purple shadow-[0_0_14px_#3b5bfd]"
+              className="absolute inset-0 origin-top rounded-full bg-gradient-to-b from-blue via-blue-2 to-cyan shadow-[0_0_12px_rgba(51,102,255,.6)]"
               style={{ scaleY: progress }}
             />
           </span>
@@ -139,10 +139,10 @@ function Mechanism() {
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.6, delay: i * 0.08, ease }}
             >
-              <span className="absolute top-0 -left-16 grid h-12 w-12 place-items-center rounded-2xl border border-stroke-2 bg-night-2 text-cyan shadow-[0_0_24px_-6px_rgba(53,198,244,.6)]">
+              <span className="absolute top-0 -left-16 grid h-12 w-12 place-items-center rounded-2xl border border-stroke-2 bg-white text-blue shadow-[0_0_24px_-6px_rgba(53,198,244,.6)]">
                 {step.icon}
               </span>
-              <span className="font-mono text-[12px] tracking-[0.14em] text-sky uppercase">Étape {String(i + 1).padStart(2, '0')}</span>
+              <span className="font-mono text-[12px] tracking-[0.14em] text-blue uppercase">Étape {String(i + 1).padStart(2, '0')}</span>
               <h3 className="mt-1 text-[clamp(24px,2.6vw,32px)] font-bold tracking-tight">{step.title}</h3>
               <p className="mt-2 max-w-md text-[18px] leading-relaxed text-mist">{step.description}</p>
             </motion.li>
@@ -173,7 +173,7 @@ function VSL() {
           <div className="text-center lg:text-left">
             <RingPing />
             <motion.p
-              className="mt-7 font-mono text-[13px] font-semibold tracking-[0.12em] text-sky uppercase"
+              className="mt-7 font-mono text-[13px] font-semibold tracking-[0.12em] text-blue uppercase"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease }}
@@ -200,7 +200,7 @@ function VSL() {
               </span>
             </h1>
             <motion.p
-              className="mx-auto mt-6 max-w-xl text-[clamp(17px,1.6vw,20px)] leading-relaxed text-[#cfd4f5] lg:mx-0"
+              className="mx-auto mt-6 max-w-xl text-[clamp(17px,1.6vw,20px)] leading-relaxed text-mist lg:mx-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease }}
@@ -223,7 +223,7 @@ function VSL() {
               <button type="button" onClick={() => scrollToId('demo')} className="btn-ghost w-full sm:w-auto">
                 <span className="relative grid h-7 w-7 place-items-center rounded-full border-[1.5px] border-current">
                   <Play className="ml-0.5 h-3 w-3 fill-current" />
-                  <span className="absolute -inset-1.5 rounded-full border border-white/40" style={{ animation: 'ripple 2.2s ease-out infinite' }} />
+                  <span className="absolute -inset-1.5 rounded-full border border-ink/20" style={{ animation: 'ripple 2.2s ease-out infinite' }} />
                 </span>
                 Tester l’assistant
               </button>
@@ -258,9 +258,9 @@ function VSL() {
               <motion.li
                 key={p}
                 variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0 } }}
-                className="flex items-center gap-2 rounded-full border border-stroke-2 bg-[rgba(16,22,78,.6)] px-4 py-2.5 text-[15px] backdrop-blur-md"
+                className="flex items-center gap-2 rounded-full border border-stroke-2 bg-white/85 px-4 py-2.5 text-[15px] backdrop-blur-md"
               >
-                <CheckCircle2 className="h-4.5 w-4.5 shrink-0 text-cyan" />
+                <CheckCircle2 className="h-4.5 w-4.5 shrink-0 text-blue" />
                 {p}
               </motion.li>
             ))}
@@ -297,7 +297,7 @@ function VSL() {
             ].map((it, i) => (
               <motion.li
                 key={it.label}
-                className="flex items-center gap-4 rounded-2xl border border-stroke bg-night/50 px-4 py-4 text-[16px] font-medium"
+                className="flex items-center gap-4 rounded-2xl border border-stroke bg-white px-4 py-4 text-[16px] font-medium"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -343,8 +343,8 @@ function VSL() {
       {/* DÉMO VOCALE */}
       <Section id="demo" contentClassName="max-w-5xl">
         <motion.div
-          className="relative overflow-hidden rounded-[32px] border border-stroke-2 p-8 md:p-12"
-          style={{ background: 'radial-gradient(80% 90% at 50% 110%, rgba(53,198,244,.35), transparent 60%), radial-gradient(70% 80% at 30% 0%, #2a35a5 0%, #121a6a 50%, #0a0f45 100%)' }}
+          className="relative overflow-hidden rounded-[32px] p-8 text-white shadow-[0_40px_80px_-40px_rgba(51,102,255,.7)] md:p-12"
+          style={{ background: 'radial-gradient(70% 90% at 50% 115%, rgba(20,200,230,.45), transparent 60%), radial-gradient(70% 80% at 20% 0%, #2c4fd8 0%, #13246b 55%, #0a1430 100%)' }}
           initial={{ opacity: 0, y: 40, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -352,7 +352,7 @@ function VSL() {
         >
           <div className="grid items-center gap-8 md:grid-cols-[0.8fr_1.2fr]">
             <div className="relative mx-auto w-full max-w-[300px]">
-              <span className="absolute inset-[10%] rounded-full bg-sky/30 blur-3xl" aria-hidden="true" />
+              <span className="absolute inset-[10%] rounded-full bg-cyan/40 blur-3xl" aria-hidden="true" />
               <img
                 src="/hakily-owl.webp"
                 width={1000}
@@ -364,20 +364,20 @@ function VSL() {
               />
             </div>
             <div>
-              <span className="kicker">
-                <b>DÉMO</b> EN DIRECT
+              <span className="kicker !border-white/25 !bg-white/10 !text-white/80 !shadow-none">
+                <b className="!text-cyan">DÉMO</b> EN DIRECT
               </span>
               <h2 className="mt-6 text-[clamp(28px,3.6vw,44px)] leading-tight font-bold tracking-tight">
-                La meilleure preuve, <span className="grad-text">c'est de lui parler toi-même</span>
+                La meilleure preuve, <span className="text-cyan">c'est de lui parler toi-même</span>
               </h2>
-              <p className="mt-4 text-[18px] leading-relaxed text-[#cfd4f5]">
+              <p className="mt-4 text-[18px] leading-relaxed text-white/80">
                 Aucune étude de cas ne vaut un appel en direct. Joue le rôle d’un client et vois comment l'assistant qualifie ta
                 demande, en conditions réelles.
               </p>
               <div className="mt-7">
                 <LiveAgentCall />
               </div>
-              <p className="mt-3 font-mono text-[12px] tracking-[0.1em] text-mist uppercase">
+              <p className="mt-3 font-mono text-[12px] tracking-[0.1em] text-white/65 uppercase">
                 Conversation vocale en direct avec l'assistant Hakily · Prend 1 minute
               </p>
             </div>
@@ -402,7 +402,7 @@ function VSL() {
             <motion.div
               key={col.title}
               className={`p-8 ${col.good ? 'grad-border rounded-[24px]' : 'glass'}`}
-              style={col.good ? { ['--gb-bg' as string]: '#0f1566' } : undefined}
+              style={col.good ? { ['--gb-bg' as string]: '#ffffff' } : undefined}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
@@ -420,7 +420,7 @@ function VSL() {
                     transition={{ duration: 0.4, delay: 0.2 + i * 0.07 }}
                   >
                     {col.good ? (
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan" />
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-blue" />
                     ) : (
                       <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-soft" />
                     )}
@@ -448,9 +448,9 @@ function VSL() {
               {sectors.map((s, i) => (
                 <span
                   key={s}
-                  className="flex items-center gap-3 rounded-[20px] border border-stroke bg-[rgba(30,38,110,.5)] px-6 py-4 text-[clamp(18px,2vw,24px)] font-semibold whitespace-nowrap"
+                  className="flex items-center gap-3 rounded-[20px] border border-stroke bg-white px-6 py-4 text-[clamp(18px,2vw,24px)] font-semibold whitespace-nowrap"
                 >
-                  <span className="h-2.5 w-2.5 rounded-full" style={{ background: ['#22d9c6', '#35c6f4', '#5b7bff', '#a45bff'][i % 4], boxShadow: '0 0 12px currentColor' }} />
+                  <span className="h-2.5 w-2.5 rounded-full" style={{ background: ['#3366ff', '#1597f0', '#14c8e6', '#0a1430'][i % 4], boxShadow: '0 0 12px currentColor' }} />
                   {s}
                 </span>
               ))}

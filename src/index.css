@@ -1,26 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette — charte Axya Group, déclinée pour Hakily */
-  --color-night: #060a2a;
-  --color-night-2: #0a0f3d;
-  --color-night-3: #121a6a;
-  --color-ink: #f3f5ff;
-  --color-mist: #aeb4dc;
-  --color-soft: #7c82ad;
-  --color-blue: #3b5bfd;
-  --color-blue-2: #5b7bff;
-  --color-sky: #35c6f4;
-  --color-cyan: #22d9c6;
-  --color-violet: #7b3ff2;
-  --color-purple: #a45bff;
-  --color-stroke: rgba(140, 160, 255, 0.18);
-  --color-stroke-2: rgba(140, 160, 255, 0.34);
+  /* Charte Hakily (couleurs du logo) : bleu marine, dégradé bleu → cyan, fond clair */
+  --color-paper: #f6f9ff;
+  --color-ink: #0a1430;
+  --color-navy: #0a1430;
+  --color-navy-2: #13246b;
+  --color-mist: #4a5577;
+  --color-soft: #8790ad;
+  --color-blue: #3366ff;
+  --color-blue-2: #2f80ff;
+  --color-sky: #0e9fe0;
+  --color-cyan: #14c8e6;
+  --color-stroke: rgba(10, 20, 48, 0.08);
+  --color-stroke-2: rgba(10, 20, 48, 0.16);
 
-  /* Typographie */
-  --font-display: "Outfit", system-ui, sans-serif;
-  --font-body: "Outfit", system-ui, sans-serif;
-  --font-mono: "Space Grotesk", ui-monospace, sans-serif;
+  /* Typographie : Lexend (géométrique, proche du logo) + Inter */
+  --font-display: "Lexend", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "Lexend", system-ui, sans-serif;
 
   --ease-out-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
   --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -33,13 +31,20 @@
   }
 
   body {
-    @apply bg-night text-ink font-body antialiased;
+    @apply bg-paper text-ink font-body antialiased;
     margin: 0;
     overflow-x: clip;
   }
 
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+  }
+
   :focus-visible {
-    outline: 2px solid var(--color-cyan);
+    outline: 2px solid var(--color-blue);
     outline-offset: 3px;
     border-radius: 10px;
   }
@@ -59,9 +64,9 @@
 }
 
 @layer components {
-  /* Texte en dégradé (bleu → cyan, la couleur du logo) */
+  /* Texte en dégradé bleu → cyan (le « A » du logo) */
   .grad-text {
-    background: linear-gradient(95deg, #2fe0e6 0%, #5b8bff 55%, #a45bff 100%);
+    background: linear-gradient(95deg, #2a5bff 0%, #1597f0 50%, #0fbad8 100%);
     background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
@@ -69,7 +74,7 @@
     animation: shine 6s ease-in-out infinite alternate;
   }
 
-  /* Pastille de section */
+  /* Pastille de section, dans l'esprit de la signature du logo */
   .kicker {
     display: inline-flex;
     align-items: center;
@@ -77,25 +82,27 @@
     padding: 8px 16px;
     border-radius: 999px;
     font-family: var(--font-mono);
-    font-weight: 600;
+    font-weight: 500;
     font-size: 12px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     border: 1px solid var(--color-stroke-2);
-    background: rgba(30, 38, 110, 0.35);
-    color: #dfe4ff;
+    background: #fff;
+    color: rgba(10, 20, 48, 0.7);
+    box-shadow: 0 6px 18px -12px rgba(51, 102, 255, 0.5);
   }
   .kicker b {
-    color: var(--color-sky);
-    font-weight: 700;
+    color: var(--color-blue);
+    font-weight: 600;
   }
 
-  /* Carte en verre, avec halo qui suit la souris (--mx / --my) */
+  /* Carte blanche, avec reflet bleu qui suit la souris (--mx / --my) */
   .glass {
     position: relative;
     border-radius: 24px;
-    background: linear-gradient(180deg, rgba(34, 42, 120, 0.5), rgba(18, 24, 80, 0.35));
+    background: #fff;
     border: 1px solid var(--color-stroke);
+    box-shadow: 0 1px 2px rgba(10, 20, 48, 0.04), 0 18px 40px -24px rgba(10, 20, 48, 0.2);
     overflow: hidden;
   }
   .glass::before {
@@ -104,7 +111,7 @@
     inset: 0;
     pointer-events: none;
     border-radius: inherit;
-    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(110, 140, 255, 0.2), transparent 45%);
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(51, 102, 255, 0.08), transparent 45%);
     opacity: 0;
     transition: opacity 0.4s ease;
   }
@@ -112,12 +119,12 @@
     opacity: 1;
   }
 
-  /* Bordure en dégradé */
+  /* Bordure en dégradé bleu → cyan */
   .grad-border {
     border: 1.5px solid transparent;
     background:
-      linear-gradient(var(--gb-bg, #0c1150), var(--gb-bg, #0c1150)) padding-box,
-      linear-gradient(120deg, #22d9c6, #3b5bfd 50%, #a45bff) border-box;
+      linear-gradient(var(--gb-bg, #fff), var(--gb-bg, #fff)) padding-box,
+      linear-gradient(120deg, #3366ff, #1597f0 50%, #14c8e6) border-box;
   }
 
   /* Boutons */
@@ -129,17 +136,19 @@
     height: 56px;
     padding: 0 10px 0 28px;
     border-radius: 999px;
-    background: #fff;
-    color: #141a5c;
+    background: linear-gradient(95deg, #3366ff, #1597f0 60%, #14c8e6);
+    background-size: 160% 100%;
+    color: #fff;
     font-weight: 600;
     font-size: 17px;
     white-space: nowrap;
-    box-shadow: 0 14px 40px -14px rgba(120, 150, 255, 0.6);
-    transition: transform 0.35s var(--ease-out-soft), box-shadow 0.35s var(--ease-out-soft);
+    box-shadow: 0 14px 34px -14px rgba(51, 102, 255, 0.7);
+    transition: transform 0.35s var(--ease-out-soft), box-shadow 0.35s var(--ease-out-soft), background-position 0.6s ease;
   }
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 20px 50px -14px rgba(120, 150, 255, 0.85);
+    background-position: 100% 0;
+    box-shadow: 0 20px 44px -14px rgba(51, 102, 255, 0.85);
   }
   .btn-primary .arr {
     width: 36px;
@@ -147,8 +156,8 @@
     border-radius: 50%;
     display: grid;
     place-items: center;
-    color: #fff;
-    background: linear-gradient(135deg, #3b5bfd, #22d9c6);
+    color: var(--color-blue);
+    background: #fff;
     transition: transform 0.35s var(--ease-back);
   }
   .btn-primary:hover .arr {
@@ -162,42 +171,18 @@
     height: 56px;
     padding: 0 26px;
     border-radius: 999px;
-    border: 1.5px solid rgba(255, 255, 255, 0.5);
-    color: #fff;
+    border: 1.5px solid rgba(10, 20, 48, 0.18);
+    background: #fff;
+    color: var(--color-ink);
     font-weight: 600;
     font-size: 17px;
     white-space: nowrap;
-    transition: background 0.3s ease, border-color 0.3s ease, transform 0.35s var(--ease-out-soft);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.35s var(--ease-out-soft);
   }
   .btn-ghost:hover {
-    border-color: #fff;
-    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(51, 102, 255, 0.5);
+    box-shadow: 0 12px 30px -16px rgba(51, 102, 255, 0.6);
     transform: translateY(-2px);
-  }
-
-  /* Fond étoilé */
-  .stars,
-  .stars::after {
-    position: fixed;
-    inset: -50% 0 0;
-    z-index: -1;
-    pointer-events: none;
-    background-image:
-      radial-gradient(1.2px 1.2px at 20px 30px, rgba(255, 255, 255, 0.55), transparent 60%),
-      radial-gradient(1px 1px at 140px 90px, rgba(160, 190, 255, 0.5), transparent 60%),
-      radial-gradient(1.4px 1.4px at 260px 200px, rgba(255, 255, 255, 0.4), transparent 60%),
-      radial-gradient(1px 1px at 330px 40px, rgba(120, 230, 255, 0.5), transparent 60%),
-      radial-gradient(1.2px 1.2px at 90px 260px, rgba(200, 170, 255, 0.45), transparent 60%);
-    background-size: 380px 300px;
-    animation: drift 120s linear infinite;
-    opacity: 0.7;
-  }
-  .stars::after {
-    content: "";
-    inset: 0;
-    background-size: 520px 420px;
-    animation: twinkle 5s ease-in-out infinite alternate;
-    opacity: 0.5;
   }
 }
 
@@ -206,17 +191,12 @@
     background-position: 100% 0;
   }
 }
-@keyframes drift {
-  to {
-    transform: translateY(50%);
-  }
-}
 @keyframes twinkle {
   from {
-    opacity: 0.15;
+    opacity: 0.25;
   }
   to {
-    opacity: 0.7;
+    opacity: 1;
   }
 }
 @keyframes bob {
@@ -245,7 +225,7 @@
 }
 @keyframes pulse-glow {
   50% {
-    box-shadow: 0 0 40px 6px rgba(91, 123, 255, 1), inset 0 0 30px rgba(53, 198, 244, 0.8);
+    box-shadow: 0 0 34px 4px rgba(51, 102, 255, 0.55), inset 0 0 24px rgba(20, 200, 230, 0.45);
   }
 }
 @keyframes eq {
@@ -260,5 +240,10 @@
 @keyframes marquee {
   to {
     transform: translateX(-100%);
+  }
+}
+@keyframes grid-pan {
+  to {
+    background-position: 40px 40px;
   }
 }

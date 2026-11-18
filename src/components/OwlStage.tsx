@@ -26,7 +26,7 @@ function FloatCard({ icon, title, sub, tone, delay }: { icon: ReactNode; title: 
       initial={{ opacity: 0, y: 24, scale: 0.92 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.9, delay, ease: [0.34, 1.56, 0.64, 1] }}
-      className="flex items-center gap-3 rounded-[18px] border border-stroke-2 bg-[rgba(16,22,78,.68)] py-3 pr-5 pl-3 shadow-[0_20px_50px_-20px_rgba(0,0,0,.6)] backdrop-blur-xl"
+      className="flex items-center gap-3 rounded-[18px] border border-stroke-2 bg-white/90 py-3 pr-5 pl-3 shadow-[0_18px_40px_-18px_rgba(10,20,48,.35)] backdrop-blur-xl"
       style={{ animation: `bob 7s ease-in-out ${-delay * 3}s infinite` }}
     >
       <span className={`relative grid h-10 w-10 shrink-0 place-items-center rounded-xl text-white ${tone}`}>{icon}</span>
@@ -87,7 +87,7 @@ function OwlStage() {
           {[0, 1, 2].map((i) => (
             <span
               key={i}
-              className="absolute inset-[18%] rounded-full border border-cyan/40"
+              className="absolute inset-[18%] rounded-full border border-cyan/50"
               style={{ animation: `ripple 3.6s ease-out ${i * 1.2}s infinite` }}
             />
           ))}
@@ -112,7 +112,7 @@ function OwlStage() {
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1.1, delay: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
-          className="w-full drop-shadow-[0_30px_40px_rgba(3,5,30,.55)]"
+          className="w-full drop-shadow-[0_28px_30px_rgba(10,20,48,.22)]"
           style={{ animation: 'bob 6s ease-in-out infinite' }}
         />
       </Layer>
@@ -137,7 +137,7 @@ function OwlStage() {
           icon={<MessageSquareText className="h-5 w-5" />}
           title="SMS récapitulatif"
           sub="Besoin, urgence, coordonnées"
-          tone="bg-gradient-to-br from-violet to-blue"
+          tone="bg-gradient-to-br from-blue-2 to-cyan"
           delay={1}
         />
       </Layer>
@@ -146,7 +146,7 @@ function OwlStage() {
           icon={<BellRing className="h-5 w-5" />}
           title="Urgence transférée"
           sub="Selon tes règles"
-          tone="bg-gradient-to-br from-[#ef2f77] to-violet"
+          tone="bg-gradient-to-br from-navy to-blue"
           delay={1.2}
         />
       </Layer>

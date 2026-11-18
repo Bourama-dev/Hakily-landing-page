@@ -50,13 +50,13 @@ function CompanyInfo({ kind }: CompanyInfoProps) {
       <Section className="pt-36 md:pt-40" contentClassName="max-w-3xl">
         <span className="kicker"><b>INFORMATIONS</b> DU SITE</span>
         <h1 className="mt-6 text-[clamp(34px,4.6vw,52px)] leading-tight font-bold tracking-[-0.03em]">{page.title}</h1>
-        <div className="mt-8 rounded-2xl border border-sky/40 bg-[rgba(53,198,244,.08)] p-5 text-[16px] leading-relaxed text-[#dfe3ff]">
-          <strong className="font-semibold text-sky">À finaliser avant publication.</strong> {page.intro}
+        <div className="mt-8 rounded-2xl border border-sky/40 bg-sky/10 p-5 text-[16px] leading-relaxed text-ink/85">
+          <strong className="font-semibold text-blue">À finaliser avant publication.</strong> {page.intro}
         </div>
         <ul className="mt-8 flex flex-col gap-4 text-[17px] leading-relaxed text-mist">
           {page.items.map((item) => <li key={item} className="glass p-5">{item}</li>)}
         </ul>
-        <Link to="/" className="mt-10 inline-block text-[15px] text-[#dfe3ff] underline underline-offset-4 hover:text-cyan">
+        <Link to="/" className="mt-10 inline-block text-[15px] text-ink/85 underline underline-offset-4 hover:text-blue">
           Retour à l’accueil
         </Link>
       </Section>

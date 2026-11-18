@@ -51,9 +51,9 @@ function LiveAgentCallInner() {
         type="button"
         onClick={isConnected ? handleStop : handleStart}
         disabled={isConnecting}
-        className="group flex w-full flex-col items-stretch gap-4 rounded-2xl border border-stroke bg-night/70 px-5 py-4 text-center transition-colors hover:border-stroke-2 disabled:cursor-wait sm:flex-row sm:items-center sm:justify-between sm:text-left"
+        className="group flex w-full flex-col items-stretch gap-4 rounded-2xl border border-stroke bg-white px-5 py-4 text-center transition-colors hover:border-stroke-2 disabled:cursor-wait sm:flex-row sm:items-center sm:justify-between sm:text-left"
       >
-        <span className="flex items-center justify-center gap-3 text-[16px] text-[#dfe3ff] sm:justify-start">
+        <span className="flex items-center justify-center gap-3 text-[16px] text-ink/85 sm:justify-start">
           {isConnected ? (
             <>
               <Equalizer active />
@@ -91,7 +91,7 @@ function LiveAgentCallInner() {
         </p>
       )}
 
-      {error && <p className="mt-3 text-center font-mono text-[12px] tracking-wide text-[#ff8a8a] uppercase">{error}</p>}
+      {error && <p className="mt-3 text-center font-mono text-[12px] tracking-wide text-[#d93a3f] uppercase">{error}</p>}
     </div>
   )
 }

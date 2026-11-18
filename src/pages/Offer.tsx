@@ -45,7 +45,7 @@ function Offer() {
           <h1 className="text-[clamp(38px,5vw,62px)] leading-[1.04] font-bold tracking-[-0.03em]">
             Une solution <span className="grad-text">adaptée à ton activité</span>
           </h1>
-          <p className="max-w-2xl text-[clamp(17px,1.6vw,20px)] leading-relaxed text-[#cfd4f5]">
+          <p className="max-w-2xl text-[clamp(17px,1.6vw,20px)] leading-relaxed text-mist">
             L’assistant téléphonique IA est notre offre prioritaire pour les TPE &amp; PME qui ne peuvent pas toujours
             décrocher. Des automatisations et agents IA peuvent s’y ajouter selon les besoins : la prestation est composée
             avec toi, pas vendue en abonnements prédéfinis.

@@ -27,7 +27,7 @@ function TicketCard({ ticketNumber, icon, index = 0, className = '', children }:
           {icon}
         </div>
       )}
-      <div className="relative text-[18px] leading-relaxed text-[#dfe3ff]">{children}</div>
+      <div className="relative text-[18px] leading-relaxed text-ink/85">{children}</div>
     </motion.div>
   )
 }

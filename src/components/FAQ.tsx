@@ -57,7 +57,7 @@ function FAQ({ items = defaultItems }: FAQProps) {
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5, delay: i * 0.05 }}
             className={`rounded-[20px] border transition-colors duration-300 ${
-              isOpen ? 'border-stroke-2 bg-[rgba(30,38,110,.5)]' : 'border-stroke bg-[rgba(24,30,92,.35)]'
+              isOpen ? 'border-stroke-2 bg-white' : 'border-stroke bg-white/70'
             }`}
           >
             <button
@@ -68,7 +68,7 @@ function FAQ({ items = defaultItems }: FAQProps) {
               className="flex w-full items-center justify-between gap-5 px-6 py-5 text-left"
             >
               <span className="flex items-baseline gap-4">
-                <span className="hidden font-mono text-[11px] tracking-[0.12em] text-sky uppercase sm:inline">
+                <span className="hidden font-mono text-[11px] tracking-[0.12em] text-blue uppercase sm:inline">
                   N°{String(i + 1).padStart(2, '0')}
                 </span>
                 <span className="text-[clamp(17px,1.8vw,20px)] font-semibold">{item.question}</span>
@@ -76,12 +76,12 @@ function FAQ({ items = defaultItems }: FAQProps) {
               <span
                 aria-hidden="true"
                 className={`relative h-9 w-9 shrink-0 rounded-full transition-all duration-500 ${
-                  isOpen ? 'rotate-180 bg-gradient-to-br from-blue to-cyan' : 'bg-white/10'
+                  isOpen ? 'rotate-180 bg-gradient-to-br from-blue to-cyan' : 'bg-ink/5'
                 }`}
               >
-                <span className="absolute top-1/2 left-1/2 h-0.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded bg-white" />
+                <span className={`absolute top-1/2 left-1/2 h-0.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded ${isOpen ? 'bg-white' : 'bg-ink'}`} />
                 <span
-                  className={`absolute top-1/2 left-1/2 h-0.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded bg-white transition-transform duration-500 ${
+                  className={`absolute top-1/2 left-1/2 h-0.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded transition-transform duration-500 ${isOpen ? 'bg-white' : 'bg-ink'} ${
                     isOpen ? '' : 'rotate-90'
                   }`}
                 />

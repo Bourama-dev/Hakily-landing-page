@@ -87,10 +87,10 @@ function CalendlyInlineWidget({ url, className = '' }: CalendlyInlineWidgetProps
         </p>
       )}
       {status === 'unavailable' && (
-        <div role="status" className="mt-4 rounded-2xl border border-stroke-2 bg-night/60 p-5 text-center">
-          <p className="text-[16px] text-[#dfe3ff]">Le calendrier ne s’affiche pas pour le moment.</p>
+        <div role="status" className="mt-4 rounded-2xl border border-stroke-2 bg-white p-5 text-center">
+          <p className="text-[16px] text-ink/85">Le calendrier ne s’affiche pas pour le moment.</p>
           <a
-            className="mt-3 inline-block font-mono text-xs tracking-wide text-cyan underline underline-offset-4"
+            className="mt-3 inline-block font-mono text-xs tracking-wide text-blue underline underline-offset-4"
             href={url}
             target="_blank"
             rel="noreferrer"

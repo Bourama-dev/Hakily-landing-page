@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
 
 /**
- * Fond global aux couleurs d'Axya : dégradé bleu nuit, étoiles qui scintillent
- * et halo lumineux qui suit la souris. Gère aussi le reflet des cartes .glass.
+ * Fond global, charte Hakily : blanc bleuté, halos bleu et cyan, et une fine grille
+ * « plan de chantier » qui dérive lentement. Halo qui suit la souris et reflet des cartes .glass.
  */
 function Backdrop() {
   const spotRef = useRef<HTMLDivElement>(null)
@@ -46,18 +46,28 @@ function Backdrop() {
         className="pointer-events-none fixed inset-0 -z-20"
         style={{
           background:
-            'radial-gradient(60% 50% at 70% 10%, rgba(59,91,253,.22), transparent 70%),' +
-            'radial-gradient(50% 40% at 0% 40%, rgba(53,198,244,.12), transparent 70%),' +
-            'radial-gradient(60% 50% at 100% 90%, rgba(123,63,242,.12), transparent 70%),' +
-            'linear-gradient(180deg, #070b30 0%, #060a2a 60%, #050824 100%)',
+            'radial-gradient(55% 45% at 80% 5%, rgba(51,102,255,.13), transparent 70%),' +
+            'radial-gradient(45% 40% at 0% 35%, rgba(20,200,230,.12), transparent 70%),' +
+            'radial-gradient(50% 45% at 100% 95%, rgba(21,151,240,.10), transparent 70%),' +
+            'linear-gradient(180deg, #f3f7ff 0%, #f6f9ff 50%, #f9fbff 100%)',
         }}
       />
-      <div className="stars" />
+      <div
+        className="pointer-events-none fixed inset-0 -z-10"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(51,102,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(51,102,255,.06) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          maskImage: 'radial-gradient(ellipse 90% 70% at 50% 30%, #000 30%, transparent 85%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 90% 70% at 50% 30%, #000 30%, transparent 85%)',
+          animation: 'grid-pan 8s linear infinite',
+        }}
+      />
       <div
         ref={spotRef}
         className="pointer-events-none fixed top-0 left-0 -z-10 -mt-[280px] -ml-[280px] h-[560px] w-[560px] rounded-full"
         style={{
-          background: 'radial-gradient(closest-side, rgba(91,123,255,.16), transparent)',
+          background: 'radial-gradient(closest-side, rgba(51,102,255,.09), transparent)',
           transform: 'translate3d(-999px,-999px,0)',
         }}
       />

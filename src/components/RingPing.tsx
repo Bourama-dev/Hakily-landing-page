@@ -25,12 +25,12 @@ function RingPing() {
         transition={{ duration: 0.6, delay: 0.4, ease: 'easeInOut' }}
       />
       <motion.span
-        className="font-mono text-[13px] font-semibold tracking-[0.14em] text-[#dfe4ff] uppercase"
+        className="font-mono text-[13px] font-semibold tracking-[0.14em] text-ink/75 uppercase"
         initial={reduce ? false : { opacity: 0, x: -6 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.9 }}
       >
-        Décroché. <span className="text-cyan">Toujours.</span>
+        Décroché. <span className="text-blue">Toujours.</span>
       </motion.span>
     </div>
   )

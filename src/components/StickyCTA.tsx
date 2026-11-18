@@ -44,7 +44,7 @@ function StickyCTA({ label = 'Réserver mon appel découverte' }: StickyCTAProps
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 90, opacity: 0 }}
             transition={{ type: 'spring', stiffness: 320, damping: 24 }}
-            className="fixed inset-x-3 z-50 flex items-center justify-between gap-3 rounded-full bg-white py-2 pr-2 pl-6 text-[15px] font-semibold text-[#141a5c] shadow-[0_14px_40px_-10px_rgba(53,198,244,.7)]"
+            className="fixed inset-x-3 z-50 flex items-center justify-between gap-3 rounded-full bg-white py-2 pr-2 pl-6 text-[15px] font-semibold text-ink shadow-[0_14px_40px_-10px_rgba(53,198,244,.7)]"
             style={{ bottom: 'calc(env(safe-area-inset-bottom, 0px) + 0.75rem)' }}
           >
             {label}

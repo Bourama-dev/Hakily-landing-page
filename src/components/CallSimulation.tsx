@@ -36,7 +36,7 @@ function CallSimulation() {
             <span className="block text-[13px] text-mist">Assistant Hakily · exemple</span>
           </span>
         </div>
-        <span className="flex items-center gap-2 rounded-full bg-cyan/15 px-3 py-1 font-mono text-[11px] tracking-[0.1em] text-cyan uppercase">
+        <span className="flex items-center gap-2 rounded-full bg-cyan/15 px-3 py-1 font-mono text-[11px] tracking-[0.1em] text-blue uppercase">
           <span className="h-2 w-2 rounded-full bg-cyan" style={{ animation: 'twinkle 1s ease-in-out infinite alternate' }} />
           En direct
         </span>
@@ -53,7 +53,7 @@ function CallSimulation() {
               transition={{ duration: 0.45, ease: [0.2, 0.7, 0.2, 1] }}
               className={`max-w-[85%] rounded-2xl px-4 py-3 text-[15px] leading-snug ${
                 l.who === 'client'
-                  ? 'self-start rounded-bl-md bg-white/10 text-[#e6e9ff]'
+                  ? 'self-start rounded-bl-md bg-ink/5 text-ink/85'
                   : 'self-end rounded-br-md bg-gradient-to-r from-blue to-[#2f8fe6] text-white'
               }`}
             >
@@ -70,12 +70,12 @@ function CallSimulation() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
-              className="mt-auto rounded-2xl border border-cyan/40 bg-[rgba(34,217,198,.08)] p-4"
+              className="mt-auto rounded-2xl border border-cyan/50 bg-cyan/10 p-4"
             >
-              <span className="flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] text-cyan uppercase">
+              <span className="flex items-center gap-2 font-mono text-[11px] tracking-[0.12em] text-blue uppercase">
                 <MessageSquareText className="h-4 w-4" /> SMS envoyé au gérant
               </span>
-              <p className="mt-2 text-[15px] leading-relaxed text-[#e6e9ff]">
+              <p className="mt-2 text-[15px] leading-relaxed text-ink/85">
                 Nouvelle demande · Fuite sous évier · Arrivée d’eau coupée · Adresse et téléphone notés · À rappeler
               </p>
             </motion.div>

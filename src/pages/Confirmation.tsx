@@ -57,12 +57,12 @@ function Confirmation() {
             Le rendez-vous dure 30 minutes. Vérifie l’e-mail Calendly pour retrouver l’horaire et le lien de réunion.
           </motion.p>
           <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-            <span className="flex items-center justify-center gap-2 rounded-full border border-stroke-2 px-4 py-2 font-mono text-[12px] tracking-[0.1em] text-[#dfe3ff] uppercase">
-              <Calendar className="h-4 w-4 text-cyan" />
+            <span className="flex items-center justify-center gap-2 rounded-full border border-stroke-2 px-4 py-2 font-mono text-[12px] tracking-[0.1em] text-ink/85 uppercase">
+              <Calendar className="h-4 w-4 text-blue" />
               Détails dans l’e-mail Calendly
             </span>
-            <span className="flex items-center justify-center gap-2 rounded-full border border-stroke-2 px-4 py-2 font-mono text-[12px] tracking-[0.1em] text-[#dfe3ff] uppercase">
-              <Clock className="h-4 w-4 text-cyan" />
+            <span className="flex items-center justify-center gap-2 rounded-full border border-stroke-2 px-4 py-2 font-mono text-[12px] tracking-[0.1em] text-ink/85 uppercase">
+              <Clock className="h-4 w-4 text-blue" />
               30 minutes
             </span>
           </div>
@@ -86,7 +86,7 @@ function Confirmation() {
               <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gradient-to-br from-blue to-cyan font-mono text-sm font-semibold">
                 {index + 1}
               </span>
-              <p className="relative pt-1 text-[17px] leading-relaxed text-[#dfe3ff]">{step}</p>
+              <p className="relative pt-1 text-[17px] leading-relaxed text-ink/85">{step}</p>
             </motion.li>
           ))}
         </ol>
@@ -106,7 +106,7 @@ function Confirmation() {
         <div className="glass p-5">
           <LiveAgentCall />
         </div>
-        <Link to="/offer" className="mt-8 block text-center text-[15px] text-[#dfe3ff] underline underline-offset-4 hover:text-cyan">
+        <Link to="/offer" className="mt-8 block text-center text-[15px] text-ink/85 underline underline-offset-4 hover:text-blue">
           Revoir les offres et les tarifs
         </Link>
       </Section>

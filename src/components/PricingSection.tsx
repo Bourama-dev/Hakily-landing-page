@@ -30,7 +30,7 @@ function PricingSection() {
       <SectionHead
         kicker={
           <>
-            <b>UNE OFFRE</b> COMPOSÉE SELON TES BESOINS
+            <b>OFFRES</b> SUR MESURE
           </>
         }
         title={
@@ -53,7 +53,7 @@ function PricingSection() {
             className={`group relative flex flex-col overflow-hidden rounded-[26px] p-8 ${
               offer.featured ? 'grad-border shadow-[0_40px_80px_-40px_rgba(53,198,244,.6)]' : 'glass'
             }`}
-            style={offer.featured ? { ['--gb-bg' as string]: '#111873' } : undefined}
+            style={offer.featured ? { ['--gb-bg' as string]: '#ffffff' } : undefined}
           >
             {offer.featured && (
               <>
@@ -80,7 +80,7 @@ function PricingSection() {
                 <ul className="relative mt-6 flex flex-col gap-3 border-t border-stroke pt-6 text-[16px]">
                   {['Minutes incluses définies selon ton volume d’appels', 'Au-delà : facturation à la minute', 'Sans durée minimale'].map((li) => (
                     <li key={li} className="flex items-start gap-3">
-                      <Check className="mt-0.5 h-5 w-5 shrink-0 text-cyan" />
+                      <Check className="mt-0.5 h-5 w-5 shrink-0 text-blue" />
                       {li}
                     </li>
                   ))}
@@ -88,11 +88,11 @@ function PricingSection() {
                 <p className="relative mt-5 text-[14px] leading-relaxed text-mist">
                   Tarif établi avec toi au cadrage, selon ton activité et tes volumes.
                 </p>
-                <p className="relative mt-4 text-[16px] leading-relaxed text-[#dfe3ff]">{offer.description}</p>
+                <p className="relative mt-4 text-[16px] leading-relaxed text-ink/85">{offer.description}</p>
               </>
             ) : (
               <>
-                <p className="relative mt-4 text-[16px] leading-relaxed text-[#dfe3ff]">{offer.description}</p>
+                <p className="relative mt-4 text-[16px] leading-relaxed text-ink/85">{offer.description}</p>
                 <p className="relative mt-6 border-t border-stroke pt-6 text-[15px] leading-relaxed text-mist">
                   Périmètre et tarif définis ensemble après étude du besoin. Des frais récurrents peuvent s’appliquer si
                   l’hébergement, la supervision ou la maintenance le nécessitent.
@@ -103,7 +103,7 @@ function PricingSection() {
             <Link
               to="/#booking"
               className={`relative mt-auto inline-flex items-center justify-center gap-2 rounded-full pt-0 text-[15px] font-semibold transition-transform duration-300 hover:-translate-y-0.5 ${
-                offer.featured ? 'mt-8 h-12 bg-white text-[#141a5c]' : 'mt-8 h-12 border border-stroke-2 hover:border-white/60'
+                offer.featured ? 'mt-8 h-12 bg-gradient-to-r from-blue via-blue-2 to-cyan text-white shadow-[0_12px_30px_-14px_rgba(51,102,255,.8)]' : 'mt-8 h-12 border border-stroke-2 hover:border-blue/40'
               }`}
             >
               Cadrer mon besoin et mon volume →

@@ -35,7 +35,6 @@ function ParticleWave({ className = '' }: ParticleWaveProps) {
     function draw() {
       if (!ctx) return
       ctx.clearRect(0, 0, W, H)
-      ctx.globalCompositeOperation = 'lighter'
       const rows = 28
       const cols = Math.max(70, Math.round(W / 9))
       for (let r = 0; r < rows; r++) {
@@ -50,9 +49,9 @@ function ParticleWave({ className = '' }: ParticleWaveProps) {
             Math.cos(xp * 2.6 - t * 0.7 + rp * 0.8) * 14 +
             (1 - edge) * H * 0.08
           if (y > H + 2 || y < -2) continue
-          const hue = 185 + xp * 50 + Math.sin(t + rp) * 6
-          const a = Math.min((0.28 + rp * 0.72) * (0.55 + edge * 0.7), 0.95)
-          ctx.fillStyle = `hsla(${hue.toFixed(0)},95%,${(60 + rp * 8).toFixed(0)}%,${a.toFixed(3)})`
+          const hue = 226 - xp * 36 + Math.sin(t + rp) * 5
+          const a = Math.min((0.12 + rp * 0.5) * (0.5 + edge * 0.7), 0.7)
+          ctx.fillStyle = `hsla(${hue.toFixed(0)},90%,${(52 - rp * 6).toFixed(0)}%,${a.toFixed(3)})`
           const s = 1.1 + rp * 1.9
           ctx.fillRect(xp * W, y, s, s)
         }
