@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 export interface FAQItem {
   question: string
@@ -12,14 +13,14 @@ const defaultItems: FAQItem[] = [
       "Non. Un répondeur enregistre un message que tu rappelles trop tard. L'assistant dialogue en direct, qualifie l'urgence et t'envoie un SMS récapitulatif.",
   },
   {
-    question: 'Mes clients vont raccrocher s\'ils tombent sur un robot ?',
+    question: "Mes clients vont raccrocher s'ils tombent sur un robot ?",
     answer:
       "C'est l'inverse de raccrocher dans le vide. La meilleure preuve, c'est de tester l'assistant toi-même juste au-dessus.",
   },
   {
     question: "L'IA ne comprend pas les spécificités de mon métier ?",
     answer:
-      'La trame est paramétrée avec toi au déploiement : vocabulaire, questions à poser, cas fréquents, zone d\'intervention.',
+      "La trame est paramétrée avec toi au déploiement : vocabulaire, questions à poser, cas fréquents, zone et horaires d'intervention.",
   },
   {
     question: "Et si l'assistant se trompe sur une urgence ?",
@@ -43,45 +44,59 @@ function FAQ({ items = defaultItems }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-3">
       {items.map((item, i) => {
         const isOpen = openIndex === i
-        const rotation = i % 2 === 0 ? -0.6 : 0.6
+        const panelId = `faq-panel-${i}`
 
         return (
-          <div
+          <motion.div
             key={item.question}
-            style={{ rotate: `${rotation}deg` }}
-            className="relative bg-ticket-paper text-ticket-ink shadow-[0_6px_16px_rgba(0,0,0,0.25)]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, delay: i * 0.05 }}
+            className={`rounded-[20px] border transition-colors duration-300 ${
+              isOpen ? 'border-stroke-2 bg-[rgba(30,38,110,.5)]' : 'border-stroke bg-[rgba(24,30,92,.35)]'
+            }`}
           >
-            <span className="absolute top-2 right-3 font-mono text-[10px] uppercase tracking-wide text-ticket-ink/50">
-              Ticket N°{String(i + 1).padStart(2, '0')}
-            </span>
             <button
               type="button"
               onClick={() => setOpenIndex(isOpen ? null : i)}
               aria-expanded={isOpen}
-              className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-display text-base uppercase tracking-wide md:text-lg"
+              aria-controls={panelId}
+              className="flex w-full items-center justify-between gap-5 px-6 py-5 text-left"
             >
-              <span>{item.question}</span>
-              <span aria-hidden="true" className="shrink-0 font-mono text-signal-orange">
-                {isOpen ? '−' : '+'}
+              <span className="flex items-baseline gap-4">
+                <span className="hidden font-mono text-[11px] tracking-[0.12em] text-sky uppercase sm:inline">
+                  N°{String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="text-[clamp(17px,1.8vw,20px)] font-semibold">{item.question}</span>
+              </span>
+              <span
+                aria-hidden="true"
+                className={`relative h-9 w-9 shrink-0 rounded-full transition-all duration-500 ${
+                  isOpen ? 'rotate-180 bg-gradient-to-br from-blue to-cyan' : 'bg-white/10'
+                }`}
+              >
+                <span className="absolute top-1/2 left-1/2 h-0.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded bg-white" />
+                <span
+                  className={`absolute top-1/2 left-1/2 h-0.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded bg-white transition-transform duration-500 ${
+                    isOpen ? '' : 'rotate-90'
+                  }`}
+                />
               </span>
             </button>
             <div
+              id={panelId}
               className="grid transition-[grid-template-rows] duration-500 ease-in-out"
               style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
             >
               <div className="overflow-hidden">
-                <div
-                  className="px-6 pb-6 font-body text-sm leading-relaxed transition-[clip-path] duration-500 ease-in-out"
-                  style={{ clipPath: isOpen ? 'inset(0 0 0% 0)' : 'inset(0 0 100% 0)' }}
-                >
-                  {item.answer}
-                </div>
+                <p className="px-6 pb-6 text-[17px] leading-relaxed text-mist sm:pl-[88px]">{item.answer}</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         )
       })}
     </div>

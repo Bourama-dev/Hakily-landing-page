@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import { Calendar, Check, Clock } from 'lucide-react'
 import Header from '../components/Header'
-import Section from '../components/Section'
+import Section, { SectionHead } from '../components/Section'
 import DimensionDivider from '../components/DimensionDivider'
 import { LiveAgentCall } from '../components/LiveAgentCall'
 
@@ -11,6 +12,8 @@ const preparationSteps = [
   'Pense au nombre d’appels que tu reçois et à leur durée habituelle.',
   'Tu peux essayer la démonstration vocale ci-dessous avant notre échange.',
 ]
+
+const ease = [0.2, 0.7, 0.2, 1] as const
 
 function Confirmation() {
   useEffect(() => {
@@ -23,47 +26,68 @@ function Confirmation() {
     <>
       <Header />
 
-      <Section className="pt-8 pb-10 md:pt-12" contentClassName="max-w-2xl">
+      <Section className="pt-36 pb-10 md:pt-40" contentClassName="max-w-2xl">
         <div className="flex flex-col items-center gap-6 text-center">
-          <span className="flex h-16 w-16 items-center justify-center rounded-full bg-signal-orange text-ticket-paper">
-            <Check className="h-8 w-8" strokeWidth={3} />
-          </span>
-          <h1 className="font-display text-4xl font-black text-ticket-paper uppercase md:text-5xl">
-            Merci pour ta réservation
-          </h1>
-          <p className="max-w-md font-body text-sm leading-relaxed text-ticket-paper/75 md:text-base">
+          <motion.div
+            className="relative w-44"
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.34, 1.56, 0.64, 1] }}
+          >
+            <span className="absolute inset-[12%] rounded-full bg-sky/30 blur-2xl" aria-hidden="true" />
+            <img src="/hakily-owl.webp" width={1000} height={915} alt="" className="relative w-full" style={{ animation: 'bob 6s ease-in-out infinite' }} />
+            <span className="absolute -right-1 bottom-2 grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-blue to-cyan shadow-[0_0_24px_rgba(53,198,244,.7)]">
+              <Check className="h-6 w-6" strokeWidth={3} />
+            </span>
+          </motion.div>
+          <motion.h1
+            className="text-[clamp(36px,5vw,56px)] leading-tight font-bold tracking-[-0.03em]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease }}
+          >
+            Merci pour <span className="grad-text">ta réservation</span>
+          </motion.h1>
+          <motion.p
+            className="max-w-md text-[18px] leading-relaxed text-mist"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease }}
+          >
             Le rendez-vous dure 30 minutes. Vérifie l’e-mail Calendly pour retrouver l’horaire et le lien de réunion.
-          </p>
+          </motion.p>
+          <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+            <span className="flex items-center justify-center gap-2 rounded-full border border-stroke-2 px-4 py-2 font-mono text-[12px] tracking-[0.1em] text-[#dfe3ff] uppercase">
+              <Calendar className="h-4 w-4 text-cyan" />
+              Détails dans l’e-mail Calendly
+            </span>
+            <span className="flex items-center justify-center gap-2 rounded-full border border-stroke-2 px-4 py-2 font-mono text-[12px] tracking-[0.1em] text-[#dfe3ff] uppercase">
+              <Clock className="h-4 w-4 text-cyan" />
+              30 minutes
+            </span>
+          </div>
         </div>
       </Section>
-
-      <div className="px-6">
-        <div className="mx-auto flex w-full max-w-2xl flex-col gap-3 border border-blueprint-line/30 bg-blueprint-navy px-6 py-5 sm:flex-row sm:items-center sm:justify-center">
-          <span className="flex items-center justify-center gap-2 font-mono text-xs tracking-wide text-ticket-paper/75 uppercase">
-            <Calendar className="h-4 w-4 text-signal-orange" />
-            Détails dans l’e-mail Calendly
-          </span>
-          <span className="flex items-center justify-center gap-2 font-mono text-xs tracking-wide text-ticket-paper/75 uppercase sm:ml-6">
-            <Clock className="h-4 w-4 text-signal-orange" />
-            30 minutes
-          </span>
-        </div>
-      </div>
 
       <DimensionDivider variant="minor" />
 
       <Section contentClassName="max-w-2xl">
-        <h2 className="mb-8 text-center font-display text-3xl font-black text-ticket-paper uppercase md:text-4xl">
-          Pour préparer l’échange
-        </h2>
+        <SectionHead title="Pour préparer l’échange" />
         <ol className="flex flex-col gap-4">
           {preparationSteps.map((step, index) => (
-            <li key={step} className="flex items-start gap-4 border border-blueprint-line/30 bg-blueprint-navy p-5">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-signal-orange font-mono text-sm text-ticket-paper">
+            <motion.li
+              key={step}
+              className="glass flex items-start gap-4 p-5"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease }}
+            >
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gradient-to-br from-blue to-cyan font-mono text-sm font-semibold">
                 {index + 1}
               </span>
-              <p className="font-body text-sm leading-relaxed text-ticket-paper/80">{step}</p>
-            </li>
+              <p className="relative pt-1 text-[17px] leading-relaxed text-[#dfe3ff]">{step}</p>
+            </motion.li>
           ))}
         </ol>
       </Section>
@@ -71,16 +95,18 @@ function Confirmation() {
       <DimensionDivider />
 
       <Section contentClassName="max-w-xl">
-        <h2 className="mb-3 text-center font-display text-2xl font-black text-ticket-paper uppercase md:text-3xl">
-          Essayer la démonstration vocale
-        </h2>
-        <p className="mx-auto mb-8 max-w-lg text-center font-body text-sm text-ticket-paper/75">
-          Simule une demande d’intervention et écoute comment l’assistant recueille les informations.
-        </p>
-        <div className="relative mx-auto max-w-xl rounded-sm border border-blueprint-line/30 bg-ticket-paper/5 p-4">
+        <SectionHead
+          title={
+            <>
+              Essayer la <span className="grad-text">démonstration vocale</span>
+            </>
+          }
+          intro="Joue le rôle d’un client et écoute comment l’assistant recueille les informations."
+        />
+        <div className="glass p-5">
           <LiveAgentCall />
         </div>
-        <Link to="/offer" className="mt-8 inline-block w-full text-center font-mono text-xs tracking-wide text-ticket-paper underline underline-offset-4">
+        <Link to="/offer" className="mt-8 block text-center text-[15px] text-[#dfe3ff] underline underline-offset-4 hover:text-cyan">
           Revoir les offres et les tarifs
         </Link>
       </Section>

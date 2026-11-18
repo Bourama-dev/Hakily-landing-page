@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
-import BlueprintGrid from './components/BlueprintGrid'
+import Backdrop from './components/Backdrop'
 import usePixelPageView from './hooks/usePixelPageView'
 import VSL from './pages/VSL'
 import Confirmation from './pages/Confirmation'
@@ -27,7 +27,7 @@ function AppRoutes() {
 
   return (
     <>
-      <BlueprintGrid />
+      <Backdrop />
       <ScrollToHash />
       <main className="pb-20 md:pb-0">
         <Routes>
