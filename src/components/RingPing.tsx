@@ -1,89 +1,38 @@
 import { motion, useReducedMotion } from 'framer-motion'
 
-const CIRCLE_COUNT = 3
-const CIRCLE_DELAY = 0.35
-const CIRCLE_DURATION = 0.9
-const LINE_DELAY = CIRCLE_DELAY * (CIRCLE_COUNT - 1) + CIRCLE_DURATION * 0.55
-const LINE_DURATION = 0.6
-const LABEL_DELAY = LINE_DELAY + LINE_DURATION
-
-const PING_X = 36
-const PING_Y = 70
-const LINE_END_X = 280
-const LABEL_X = 296
-
+/** Badge animé « Décroché. Toujours. » : un point qui sonne puis une ligne qui se trace. */
 function RingPing() {
-  const reduceMotion = useReducedMotion()
-
-  if (reduceMotion) {
-    return (
-      <svg viewBox="0 0 420 140" className="w-full max-w-md" role="img" aria-label="Décroché. Toujours.">
-        <circle cx={PING_X} cy={PING_Y} r={6} className="fill-hazard-yellow" />
-        <line
-          x1={PING_X + 24}
-          y1={PING_Y}
-          x2={LINE_END_X}
-          y2={PING_Y}
-          className="stroke-blueprint-line"
-          strokeWidth={1}
-        />
-        <text
-          x={LABEL_X}
-          y={PING_Y + 5}
-          className="fill-ticket-paper font-mono text-[13px] uppercase tracking-wide"
-        >
-          Décroché. Toujours.
-        </text>
-      </svg>
-    )
-  }
+  const reduce = useReducedMotion()
 
   return (
-    <svg viewBox="0 0 420 140" className="w-full max-w-md overflow-visible" role="img" aria-label="Décroché. Toujours.">
-      <circle cx={PING_X} cy={PING_Y} r={6} className="fill-signal-orange" />
-
-      {Array.from({ length: CIRCLE_COUNT }).map((_, i) => (
-        <motion.circle
-          key={i}
-          cx={PING_X}
-          cy={PING_Y}
-          className="stroke-hazard-yellow"
-          fill="none"
-          strokeWidth={1.5}
-          strokeDasharray="3 5"
-          initial={{ r: 6, opacity: 0.9 }}
-          animate={{ r: 46, opacity: 0 }}
-          transition={{ duration: CIRCLE_DURATION, delay: i * CIRCLE_DELAY, ease: 'easeOut' }}
-        />
-      ))}
-
-      <motion.line
-        x1={PING_X + 24}
-        y1={PING_Y}
-        x2={LINE_END_X}
-        y2={PING_Y}
-        className="stroke-blueprint-line"
-        strokeWidth={1}
-        initial={{ pathLength: 0 }}
-        animate={{ pathLength: 1 }}
-        transition={{ duration: LINE_DURATION, delay: LINE_DELAY, ease: 'easeInOut' }}
+    <div className="inline-flex items-center gap-4" role="img" aria-label="Décroché. Toujours.">
+      <span className="relative grid h-4 w-4 place-items-center" aria-hidden="true">
+        <span className="h-2.5 w-2.5 rounded-full bg-cyan shadow-[0_0_12px_#22d9c6]" />
+        {!reduce &&
+          [0, 1, 2].map((i) => (
+            <span
+              key={i}
+              className="absolute inset-[-6px] rounded-full border border-dashed border-cyan"
+              style={{ animation: `ripple 1.8s ease-out ${i * 0.5}s infinite` }}
+            />
+          ))}
+      </span>
+      <motion.span
+        aria-hidden="true"
+        className="block h-px w-14 origin-left bg-gradient-to-r from-cyan to-blue-2"
+        initial={reduce ? false : { scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.6, delay: 0.4, ease: 'easeInOut' }}
       />
-
-      <motion.g
-        initial={{ opacity: 0, scale: 0.85 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.4, delay: LABEL_DELAY }}
-        style={{ transformOrigin: `${LABEL_X}px ${PING_Y}px` }}
+      <motion.span
+        className="font-mono text-[13px] font-semibold tracking-[0.14em] text-ink/75 uppercase"
+        initial={reduce ? false : { opacity: 0, x: -6 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.9 }}
       >
-        <text
-          x={LABEL_X}
-          y={PING_Y + 5}
-          className="fill-ticket-paper font-mono text-[13px] uppercase tracking-wide"
-        >
-          Décroché. Toujours.
-        </text>
-      </motion.g>
-    </svg>
+        Décroché. <span className="text-blue">Toujours.</span>
+      </motion.span>
+    </div>
   )
 }
 

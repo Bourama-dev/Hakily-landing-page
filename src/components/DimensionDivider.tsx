@@ -2,21 +2,14 @@ interface DimensionDividerProps {
   variant?: 'full' | 'minor'
 }
 
+/** Fine ligne lumineuse entre deux sections. */
 function DimensionDivider({ variant = 'full' }: DimensionDividerProps) {
-  if (variant === 'minor') {
-    return (
-      <div className="relative flex items-center justify-center px-6 py-2" aria-hidden="true">
-        <div className="h-px w-full max-w-5xl bg-blueprint-line/15" />
-      </div>
-    )
-  }
-
   return (
-    <div className="relative flex items-center justify-center px-6 py-2" aria-hidden="true">
-      <div className="relative h-px w-full max-w-5xl bg-blueprint-line/30">
-        <span className="absolute left-0 top-1/2 h-3 w-px -translate-y-1/2 bg-blueprint-line/60" />
-        <span className="absolute right-0 top-1/2 h-3 w-px -translate-y-1/2 bg-blueprint-line/60" />
-      </div>
+    <div className="relative flex items-center justify-center px-6" aria-hidden="true">
+      <div
+        className={`h-px w-full max-w-5xl ${variant === 'minor' ? 'opacity-40' : 'opacity-80'}`}
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(53,198,244,.6), rgba(91,123,255,.6), transparent)' }}
+      />
     </div>
   )
 }

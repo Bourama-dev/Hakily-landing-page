@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 
 function scrollToBooking() {
   document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
@@ -39,14 +40,17 @@ function StickyCTA({ label = 'Réserver mon appel découverte' }: StickyCTAProps
           <motion.button
             type="button"
             onClick={scrollToBooking}
-            initial={{ y: 80, opacity: 0 }}
+            initial={{ y: 90, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 80, opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 320, damping: 20 }}
-            className="fixed inset-x-3 z-50 w-[calc(100%-1.5rem)] bg-signal-orange px-4 py-3 font-mono text-xs uppercase tracking-wide text-ticket-paper shadow-[0_6px_16px_rgba(0,0,0,0.4)] active:translate-y-0.5 sm:inset-x-auto sm:right-4 sm:w-auto"
+            exit={{ y: 90, opacity: 0 }}
+            transition={{ type: 'spring', stiffness: 320, damping: 24 }}
+            className="fixed inset-x-3 z-50 flex items-center justify-between gap-3 rounded-full bg-white py-2 pr-2 pl-6 text-[15px] font-semibold text-ink shadow-[0_14px_40px_-10px_rgba(53,198,244,.7)]"
             style={{ bottom: 'calc(env(safe-area-inset-bottom, 0px) + 0.75rem)' }}
           >
             {label}
+            <span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-blue to-cyan text-white">
+              <ArrowRight className="h-5 w-5" />
+            </span>
           </motion.button>
         )}
       </AnimatePresence>

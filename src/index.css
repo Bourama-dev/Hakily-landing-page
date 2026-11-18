@@ -1,31 +1,249 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette — "Dispatch Chantier" */
-  --color-blueprint-navy: #0e1f33;
-  --color-blueprint-line: #3e6178;
-  --color-ticket-paper: #efe7d8;
-  --color-ticket-ink: #1c1b18;
-  --color-signal-orange: #ff5a1f;
-  --color-hazard-yellow: #ffc94a;
+  /* Charte Hakily (couleurs du logo) : bleu marine, dégradé bleu → cyan, fond clair */
+  --color-paper: #f6f9ff;
+  --color-ink: #0a1430;
+  --color-navy: #0a1430;
+  --color-navy-2: #13246b;
+  --color-mist: #4a5577;
+  --color-soft: #8790ad;
+  --color-blue: #3366ff;
+  --color-blue-2: #2f80ff;
+  --color-sky: #0e9fe0;
+  --color-cyan: #14c8e6;
+  --color-stroke: rgba(10, 20, 48, 0.08);
+  --color-stroke-2: rgba(10, 20, 48, 0.16);
 
-  /* Typography */
-  --font-display: "Big Shoulders Display", sans-serif;
-  --font-body: "IBM Plex Sans", sans-serif;
-  --font-mono: "IBM Plex Mono", monospace;
+  /* Typographie : Lexend (géométrique, proche du logo) + Inter */
+  --font-display: "Lexend", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "Lexend", system-ui, sans-serif;
+
+  --ease-out-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   body {
-    @apply bg-blueprint-navy text-ticket-paper font-body antialiased;
+    @apply bg-paper text-ink font-body antialiased;
     margin: 0;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-signal-orange;
+    outline: 2px solid var(--color-blue);
+    outline-offset: 3px;
+    border-radius: 10px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Texte en dégradé bleu → cyan (le « A » du logo) */
+  .grad-text {
+    background: linear-gradient(95deg, #2a5bff 0%, #1597f0 50%, #0fbad8 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 6s ease-in-out infinite alternate;
+  }
+
+  /* Pastille de section, dans l'esprit de la signature du logo */
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-stroke-2);
+    background: #fff;
+    color: rgba(10, 20, 48, 0.7);
+    box-shadow: 0 6px 18px -12px rgba(51, 102, 255, 0.5);
+  }
+  .kicker b {
+    color: var(--color-blue);
+    font-weight: 600;
+  }
+
+  /* Carte blanche, avec reflet bleu qui suit la souris (--mx / --my) */
+  .glass {
+    position: relative;
+    border-radius: 24px;
+    background: #fff;
+    border: 1px solid var(--color-stroke);
+    box-shadow: 0 1px 2px rgba(10, 20, 48, 0.04), 0 18px 40px -24px rgba(10, 20, 48, 0.2);
+    overflow: hidden;
+  }
+  .glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(51, 102, 255, 0.08), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .glass:hover::before {
+    opacity: 1;
+  }
+
+  /* Bordure en dégradé bleu → cyan */
+  .grad-border {
+    border: 1.5px solid transparent;
+    background:
+      linear-gradient(var(--gb-bg, #fff), var(--gb-bg, #fff)) padding-box,
+      linear-gradient(120deg, #3366ff, #1597f0 50%, #14c8e6) border-box;
+  }
+
+  /* Boutons */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    height: 56px;
+    padding: 0 10px 0 28px;
+    border-radius: 999px;
+    background: linear-gradient(95deg, #3366ff, #1597f0 60%, #14c8e6);
+    background-size: 160% 100%;
+    color: #fff;
+    font-weight: 600;
+    font-size: 17px;
+    white-space: nowrap;
+    box-shadow: 0 14px 34px -14px rgba(51, 102, 255, 0.7);
+    transition: transform 0.35s var(--ease-out-soft), box-shadow 0.35s var(--ease-out-soft), background-position 0.6s ease;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    background-position: 100% 0;
+    box-shadow: 0 20px 44px -14px rgba(51, 102, 255, 0.85);
+  }
+  .btn-primary .arr {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--color-blue);
+    background: #fff;
+    transition: transform 0.35s var(--ease-back);
+  }
+  .btn-primary:hover .arr {
+    transform: translateX(4px) rotate(-8deg);
+  }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 56px;
+    padding: 0 26px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(10, 20, 48, 0.18);
+    background: #fff;
+    color: var(--color-ink);
+    font-weight: 600;
+    font-size: 17px;
+    white-space: nowrap;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.35s var(--ease-out-soft);
+  }
+  .btn-ghost:hover {
+    border-color: rgba(51, 102, 255, 0.5);
+    box-shadow: 0 12px 30px -16px rgba(51, 102, 255, 0.6);
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 100% 0;
+  }
+}
+@keyframes twinkle {
+  from {
+    opacity: 0.25;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-14px) rotate(0.6deg);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ripple {
+  from {
+    transform: scale(0.85);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+@keyframes pulse-glow {
+  50% {
+    box-shadow: 0 0 34px 4px rgba(51, 102, 255, 0.55), inset 0 0 24px rgba(20, 200, 230, 0.45);
+  }
+}
+@keyframes eq {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes grid-pan {
+  to {
+    background-position: 40px 40px;
   }
 }
